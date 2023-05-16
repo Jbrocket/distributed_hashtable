@@ -26,4 +26,5 @@ The clusterclient takes advantage of multiple servers to add replication and per
 for every key. In addition to this, since there are multiple servers that store the same key,
 the cluster also makes use of random access to increase the total throughput of the system.
 If, for whatever reason, the client can't access the server, it'll retry on writes, but on lookups
-it chooses a new server to read from.
+it chooses a new server to read from. Each server maintains its own transaction file and checkpoint
+to maintain persistence of data.
